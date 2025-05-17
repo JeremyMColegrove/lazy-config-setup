@@ -15,6 +15,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>f", ":Prettier<CR>", { desc = "Format with Prettier" })
 vim.keymap.set("v", "<M-c>", "\"+y", { desc = "Copy to system clipboard" })
+vim.keymap.set("n", "<leader>q", "gcc", { desc = "Toggles code comment", remap = true, silent = true})
+vim.keymap.set("v", "<leader>q", "gc", { desc = "Toggle code comment in visual mode", remap = true, silent = true})
 
--- load all your plugins via Lazy.nvim
 require("config.lazy")

@@ -35,6 +35,15 @@ return {
 				vim.keymap.set("n", "<C-k>",  vim.lsp.buf.signature_help, opts)
 				vim.keymap.set("n", "<leader>e", vim.diagnostic.goto_next,  opts)
 				vim.keymap.set("n", "<leader>E", vim.diagnostic.goto_prev,  opts)
+
+				-- Remove unused imports only
+				vim.keymap.set("n", "<leader>di", function()
+					vim.lsp.buf.code_action({
+						context = { only = { "source.removeUnusedImports.ts" } },
+						apply   = true,
+					})
+				end, { buffer = bufnr, desc = "LSP: Remove Unused Imports" })
+
 			end
 
 			-- LSP capabilities from nvim-cmp
