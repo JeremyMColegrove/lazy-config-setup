@@ -1,0 +1,20 @@
+-- leader, tab settings, etc.
+vim.g.mapleader = " "
+vim.opt.termguicolors  = true
+vim.opt.shiftwidth     = 2
+vim.opt.tabstop        = 2
+vim.opt.relativenumber = true
+vim.opt.showmode       = false
+vim.opt.clipboard      = "unnamedplus"
+
+-- keep your scrolling centered
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
+
+-- other mappings
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>f", ":Prettier<CR>", { desc = "Format with Prettier" })
+vim.keymap.set("v", "<M-c>", "\"+y", { desc = "Copy to system clipboard" })
+
+-- load all your plugins via Lazy.nvim
+require("config.lazy")
